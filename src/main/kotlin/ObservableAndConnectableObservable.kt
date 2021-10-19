@@ -202,11 +202,12 @@ class ObservableAndConnectableObservable {
     Cold Observable
     - subscribe가 호출되면 데이터를 배출하기 시작한다. (Observable이 배출하는 동작을 시작한다)
     - 처음부터 모든 데이터가 순서대로 배출된다
-    - 구독할때마다 동일한 데이터가 동일한 순서로 배출된다
+    - __구독할때마다 동일한 데이터가 동일한 순서로 배출된다__
     Hot Observable
     - subscribe와 상관없이 데이터를 배출한다
     - 구독시점부터 데이터를 전달 받으며, 구독신청전의 데이터는 받을 수 없다
     - Event를 전달받는 형태로 사용함
+     Cold Observable이 CD/DVD 레코딩으로 본다면, Hot Observabledms TV채널라고 생각하면 된다.
      */
     fun connectableObservable() {
         /**
@@ -214,6 +215,7 @@ class ObservableAndConnectableObservable {
         subscribe()를 호출하였으나, onNext()가 호출되지 않았습니다.
         1번과 2번 구독자를 등록 후 Observable의 connect()를 호출하면 그때서야 데이터가 배출됩니다.
         또한 배출이 완료된 이후에 등록된 3번은 데이터를 하나도 전달받지 못합니다
+         이와같이 옵저버블에서 단 한번의 배출로 모든 구독자에게 배출을 전달하는 방식을 Multicasting이라고 합니다.
          */
         val connectableObservable = (1..10).toObservable().publish()
         // 1번 구독자 등록
