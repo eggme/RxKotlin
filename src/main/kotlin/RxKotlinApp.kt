@@ -61,8 +61,14 @@ fun main() {
 //    }
 //
 //    Reactive().reactive()
-        Subject().run()
+//        Subject().run()
+//    FlowableAndBackPressure().run()
+//    RxKotlinOperator().run()
+//    Scheduler().run()
+//    Using().run()
+    CustomOperator().run()
 }
+
 
 fun createTable() =
     table {
